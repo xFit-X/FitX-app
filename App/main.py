@@ -10,11 +10,9 @@ from datetime import timedelta
 
 from App.database import init_db
 
-from App.controllers import (
-    setup_jwt
-)
-
 from App.views import views
+
+
 
 
 def add_views(app):
@@ -50,10 +48,19 @@ def create_app(config={}):
     app.config['SEVER_NAME'] = '0.0.0.0'
     app.config['PREFERRED_URL_SCHEME'] = 'https'
     app.config['UPLOADED_PHOTOS_DEST'] = "App/uploads"
+    login_manager = LoginManager()
+    login_manager.init_app(app)
     photos = UploadSet('photos', TEXT + DOCUMENTS + IMAGES)
     configure_uploads(app, photos)
     add_views(app)
     init_db(app)
-    setup_jwt(app)
     app.app_context().push()
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        customer =  Customer.query.get(user_id)
+        if customer:
+            return customer
+        return Staff.query.get(user_id)
+
     return app
