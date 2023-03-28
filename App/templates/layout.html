@@ -11,20 +11,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}{% endblock %}</title>
 
+    <style>
+      nav .brand-logo.left {
+        left: 4rem;
+      }
+    </style>
+
   </head>
   <body>
-    <nav class="purple">
+    <nav class="blue accent-3 ">
+      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons white-text">menu</i></a>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo center">{% block page %}{% endblock %}</a>
-        <div class="nav-wrapper">
-            <ul id="nav-mobile" class="left">
-                <li><a href="/">Home</a></li>
-                <li><a href="/users">Users Jinja</a></li>
-                <li><a href="/static/users">Users JS</a></li>
-            </ul>
-        </div>
+        <a href="#!" class="brand-logo left">{% block page %}{% endblock %}</a>
       </div>
     </nav>
+
+    <ul id="slide-out" class="sidenav">
+      <nav class="blue accent-3 nav-wrapper" style="height: 150px; padding:10px">
+          <span style="font-size:2em; font-weight: bold;">Not Logged In</span>
+          <div>
+            <button class="btn waves-effect waves-light white black-text">
+              Login
+            </button>
+            <button class="btn waves-effect waves-light white black-text">
+              Sign Up
+            </button>
+          </div>
+          <!-- <a href="#user"><img class="circle" src="/static/profile.png"></a>
+          <a href="#name"><span class="name">John Doe</span></a> -->
+      </nav>
+      <li><a class="waves-effect" href="#!">Browse Games</a></li>
+      <li><a class="waves-effect" href="#!">Profile</a></li>
+      <li><a class="waves-effect" href="#!">About</a></li>
+    </ul>
+   
     
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -43,5 +63,8 @@
     <div class="container" id="content">{% block content %}{% endblock %}</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        M.AutoInit();
+    </script>
   </body>
 </html>
