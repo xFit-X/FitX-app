@@ -5,7 +5,7 @@ from flask.cli import with_appcontext, AppGroup
 from App.database import db, get_migrate
 from App.main import create_app
 from App.models import ( Customer, Staff )
-from App.controllers import ( create_customer, get_available_listings, get_all_customers, create_staff, get_all_staff, login, create_game, get_all_games, list_game )
+from App.controllers import ( create_customer, initialize, get_available_listings, get_all_customers, create_staff, get_all_staff, login, create_game, get_all_games, list_game )
 
 # This commands file allow you to create convenient CLI commands for testing controllers
 
@@ -14,12 +14,8 @@ migrate = get_migrate(app)
 
 # This command creates and initializes the database
 @app.cli.command("init", help="Creates and initializes the database")
-def initialize():
-    db.drop_all()
-    db.create_all()
-    create_customer('bob', 'bobpass')
-    create_staff('rob', 'robpass')
-    create_game("Frogger", 1232)
+def initialize_db():
+    initialize()
     print('database intialized')
 
 '''

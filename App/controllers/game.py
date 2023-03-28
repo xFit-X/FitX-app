@@ -5,7 +5,7 @@ from App.database import db
 import json
 
 
-def create_game(title, rawgId, rating='Teen', platform='ps5', boxart='https://placecage.com/500/500', genre='action'):
+def create_game(title, rawgId, rating='Teen', platform='ps5', boxart='https://via.placeholder.com/400x200', genre='action'):
     newgame = Game(title=title, rawgId=rawgId, rating=rating, platform=platform, boxart=boxart, genre=genre)
     db.session.add(newgame)
     db.session.commit()
