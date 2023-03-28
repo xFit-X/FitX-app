@@ -1,10 +1,24 @@
 {% extends "layout.html" %}
-{% block title %}Flask MVC App{% endblock %}
-{% block page %}Flask MVC App{% endblock %}
+{% block title %}Game Fly{% endblock %}
+{% block page %}Game Fly{% endblock %}
 
 {{ super() }}
 
 {% block content %}
-    <h1>Flask MVC</h1>
-    <p>This is a boileplate flask application which follows the MVC pattern for structuring the project.</p>
+    <div class="row">
+        {% for listing in listings %}
+        <div class="col s12 m4">
+                <div class="card blue accent-3">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{listing.game.title}}</span>
+                        <p>Price: {{listing.price}}</p>
+                        <p>Condition: {{listing.condition}}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Reserve</a>
+                    </div>
+                </div>
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}
