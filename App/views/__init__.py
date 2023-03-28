@@ -1,8 +1,9 @@
-# blue prints are imported 
-# explicitly instead of using *
-from .user import user_views
 from .index import index_views
+# from .game import game_views
+# from .listing import listing_views
+# from .payment import payment_views
+# from .rental import rental_views
 
-
-views = [user_views, index_views] 
-# blueprints must be added to this list
+views = [
+    index_views
+]
