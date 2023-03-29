@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+  
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Listing Detail</title>
+
+    <style>
+      nav .brand-logo.left {
+        left: 4rem;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="navbar-fixed">
+        <nav class="blue accent-3 ">
+          <a href="/" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons white-text">arrow_back</i></a>
+          <div class="nav-wrapper">
+            <a href="#" class="brand-logo left">Viewing listing {{listing.listingId}}</a>
+          </div>
+        </nav>
+    </div>
+   
+    
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <nav class="white black-text" style="padding: 10px">
+        <div class="nav-wrapper">
+            <ul class="flashes">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+      </nav>
+      {% endif %}
+    {% endwith %}
+
+    <div class="container">
+        <div class="row center">
+            <h1>{{listing.game.title}}</h1>
+        </div>
+        <div class="row center">
+            <img src="{{listing.game.boxart}}" height="300px" width="253px">
+        </div>
+        <div class="row" style="font-size: 1.5em;">
+            <div class="col m5 offset-m2">
+                <div><b>Platform:</b> {{listing.game.platform}}</div>
+                <div><b>Rating:</b> {{listing.game.rating}}</div>
+                <div><b>Price:</b> ${{listing.price}}</div>
+            </div>
+            <div class="col m5">
+                <div><b>Genre:</b> {{listing.game.genre}}</div>
+                <div><b>Listed By:</b> {{listing.owner.username}}</div>
+                <div><b>Condition:</b> {{listing.condition}}</div>
+            </div>
+      
+        </div>
+        <div class="row center">
+            <a class="col s12 m8 offset-m2 waves-effect waves-light btn blue accent-3">Rent Game</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        M.AutoInit();
+    </script>
+  </body>
+</html>

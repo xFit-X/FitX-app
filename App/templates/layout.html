@@ -19,12 +19,14 @@
 
   </head>
   <body>
-    <nav class="blue accent-3 ">
-      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons white-text">menu</i></a>
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo left">{% block page %}{% endblock %}</a>
-      </div>
-    </nav>
+    <div class="navbar-fixed">
+      <nav class="blue accent-3 ">
+        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons white-text">menu</i></a>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo left">{% block page %}{% endblock %}</a>
+        </div>
+      </nav>
+    </div>
 
     <ul id="slide-out" class="sidenav">
       <nav class="blue accent-3 nav-wrapper" style="height: 150px; padding:10px">

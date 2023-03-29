@@ -8,11 +8,14 @@ from App.controllers import (
 )
 
 @index_views.route('/', methods=['GET'])
-@index_views.route('/<listing_id>', methods=['GET'])
 def index_page(listing_id=None):
     listings = get_all_listings()
-    selected = get_listing(listing_id) if listing_id else None
-    return render_template('index.html', listings=listings, selected=selected)
+    return render_template('index.html', listings=listings)
+
+@index_views.route('/<int:listing_id>', methods=['GET'])
+def get_listing_page(listing_id):
+    listing = get_listing(listing_id)
+    return render_template('detail.html', listing=listing)
 
 @index_views.route('/init', methods=['GET'])
 def init():

@@ -99,6 +99,11 @@ def create_game_command(title, rating, platform, boxart, genre):
 def list_game_command():
     print(get_all_games())
 
+@game_cli.command("load", help="Loads games from the api into the database")
+@click.argument("page", default=1)
+def load_game_command(page):
+    games = cache_api_games(page)
+    print(f"{len(games)} games loaded from API")
 
 app.cli.add_command(game_cli)
 
