@@ -41,9 +41,15 @@ def search_api_game(query):
 
 def fetch_api_games(page=1, ordering='-release'):
     url = f'https://api.rawg.io/api/games?key={config["RAWG_TOKEN"]}&ordering={ordering}&page={page}'
-    response = requests.request("GET", url)
-    json_response = json.loads(response.text)
-    return json_response['results']
+    try:
+        response = requests.request("GET", url)
+        json_response = json.loads(response.text)
+        if response.status_code != 200:
+            reponse.raise_for_status()
+        return json_response['results']
+    except Exception as e:
+        print(f"error: {e}")
+    return []
 
 def cache_api_games(page=1):
     if page == 1:
