@@ -45,7 +45,7 @@ def fetch_api_games(page=1, ordering='-release'):
         response = requests.request("GET", url)
         json_response = json.loads(response.text)
         if response.status_code != 200:
-            reponse.raise_for_status()
+            response.raise_for_status()
         return json_response['results']
     except Exception as e:
         print(f"error: {e}")
