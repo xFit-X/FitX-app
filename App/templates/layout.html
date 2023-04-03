@@ -29,19 +29,32 @@
     </div>
 
     <ul id="slide-out" class="sidenav">
-      <nav class="blue accent-3 nav-wrapper" style="height: 150px; padding:10px">
+      {% if current_user.is_authenticated %}
+        <nav class="blue accent-3 nav-wrapper" style="height: 150px; padding:10px">
+          <span style="font-size:2em; font-weight: bold;">Welcome {{current_user.username}}</span>
+          <div>
+            <a  href="/logout" class="btn waves-effect waves-light white black-text">
+              Logout
+            </a>
+          </div>
+        </nav>
+      {% else %}
+        <nav class="blue accent-3 nav-wrapper" style="height: 150px; padding:10px">
           <span style="font-size:2em; font-weight: bold;">Not Logged In</span>
           <div>
-            <button class="btn waves-effect waves-light white black-text">
+            <a  href="/login" class="btn waves-effect waves-light white black-text">
               Login
-            </button>
-            <button class="btn waves-effect waves-light white black-text">
+            </a>
+            <a  href="/signup" class="btn waves-effect waves-light white black-text">
               Sign Up
-            </button>
+            </a>
           </div>
           <!-- <a href="#user"><img class="circle" src="/static/profile.png"></a>
           <a href="#name"><span class="name">John Doe</span></a> -->
-      </nav>
+        </nav>
+      {% endif %}
+
+
       {% block menu %}
       {% endblock %}
 

@@ -1,4 +1,4 @@
-from App.models import Rental, Listing, User
+from App.models import Rental, Listing, Customer
 from .payment import create_rental_payment
 from App.database import db
 
@@ -27,11 +27,11 @@ def get_rentals_json():
     rentals = Rental.query.all()
     return [rental.toJSON() for rental in rentals]
 
-def get_outstanding_user_rentals(userId):
-    user = User.query.get(userId)
-    if user :
-        return Rental.query.filter_by(userId=userId, return_date=None).all()
-    return False
+def get_outstanding_customer_rentals(customerId):
+    customer = Customer.query.get(customerId)
+    if customer :
+        return Rental.query.filter_by(renterId=customerId, return_date=None).all()
+    return []
         
 def get_outstanding_rentals():
     return Rental.query.filter_by(return_date=None).all()

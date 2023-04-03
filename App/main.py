@@ -10,6 +10,7 @@ from datetime import timedelta
 from App.database import init_db
 from App.views import views
 from App.config import config
+from App.models import Customer
 
 
 def add_views(app):

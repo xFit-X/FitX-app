@@ -1,43 +1,27 @@
 {% extends "layout.html" %}
-{% block title %}Game Fly{% endblock %}
-{% block page %}Game Fly{% endblock %}
+{% block title %}My Rentals{% endblock %}
+{% block page %}My Rentals{% endblock %}
 
 {% block menu %}
-    <li class="active"><a class="waves-effect"  href="/">Browse Games</a></li>
+    <li><a class="waves-effect"  href="/">Browse Games</a></li>
     {% if current_user.is_authenticated %}
-        <li><a class="waves-effect"  href="/rentals">My Rentals</a></li>
+        <li class="active"><a class="waves-effect"  href="/rentals">My Rentals</a></li>
     {% endif %}
     <li><a class="waves-effect" href="/profile">Profile</a></li>
     <li><a class="waves-effect" href="/about">About</a></li>
 {% endblock %}
 
 {% block content %}
-  
-    <form class="row" action="/listings" method="GET">
-        <div class="input-field">
-            <div class="col s11">
-                <input id="search" type="search" placeholder="search listings">
-            </div>
-            <div class="col s1">
-                <button type="submit" class="btn blue accent-3 waves-effect waves-light  white-text>
-                    <label for="search"><i class="material-icons">search</i></label>
-                </button>
-            </div>
-        </div>
-    </form>
- 
+
     <div class="row">
-        {% for listing in listings %}
+        {% for rental in rentals %}
         <div class="col s12 m4">
                 <div class="card blue accent-3">
                     <div class="card-content white-text">
-                        <span class="card-title">{{listing.game.title}}</span>
-                        <p>Price: {{listing.price}}</p>
-                        <p>Condition: {{listing.condition}}</p>
+                        <span class="card-title">{{rental.rentalId}}</span>
+                    
                     </div>
-                    <div class="card-action">
-                        <a href="/{{listing.listingId}}" class="white-text">Reserve</a>
-                    </div>
+                  
                 </div>
         </div>
         {% endfor %}
