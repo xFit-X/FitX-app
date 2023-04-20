@@ -1,0 +1,158 @@
+html{
+    height: 100vh;
+  }
+  
+  body{
+    height: 100%;
+  }
+
+  .collapsible-header {
+    /* font-size: 30px;
+    text-align: right; */
+    font-size: 20px; /* set font size to your desired size */
+    text-align: center; /* center align the header text */
+     /* set width to your desired size */
+    margin: 0 auto;
+  }
+  .collapsible {
+    /* font-size: 30px;
+    text-align: right; */
+    width: 60%; /* set width to your desired size */
+    margin: 0 auto;
+  }
+
+  /* Use Congenial font for accordion headers */
+  .collapsible-header {
+    font-family: 'Congenial', sans-serif;
+  }
+
+  nav .brand-logo.left {
+      left: 0rem; 
+      text-align: center;             
+    }
+
+  #alert {
+    background-color: var(--alert);
+    position: relative;
+    padding: 1em;
+    color: rgb(75, 0, 130);
+  }
+
+  #close {
+      position: absolute;
+      top: 1px;
+      right: 10px;
+      color: rgb(75, 0, 130);
+      font-size: 1.5em;
+      text-decoration: none;
+  }
+
+  #close:hover {
+      cursor: pointer;
+      /* change the cursor to a pointer on hover */
+  }
+
+  .nav-wrapper form {
+    position: relative;
+  }
+
+  .nav-wrapper form .input-field {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: 5%;
+      transform: translateY(30%);
+  }
+
+  .nav-wrapper form .input-field input[type=search] {
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: none;
+    box-shadow: none;
+    font-size: 16px;
+    height: 40px;
+    padding-left: 40px;
+    padding-right: 20px;
+    width: 200px;
+  }
+
+  .nav-wrapper form .input-field i {
+    color: #000000;      
+    transform: translateY(-16%);
+  }
+
+  .brand-logo {
+    font-size: 2em; /* adjust the size as needed */
+  }
+
+  .brand-logo::before {
+    content: "Fit";
+  }
+
+  .brand-logo::after {
+    content: "X";
+    color: blue;
+    text-shadow: 1px 1px red;
+    font-size: 1.5em; /* adjust the size as needed */
+  }
+
+  .nav-wrapper form .input-field i.clear-icon {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .nav-wrapper form .input-field input[type=search]:not(.browser-default):focus:not([readonly]) {
+    background-color: #ffffff;
+    box-shadow: none;
+  }
+  
+  .nav-wrapper form .input-field input[type=search]:not(.browser-default):focus:not([readonly])+label {
+    color: #000000;
+  }
+  
+  .nav-wrapper form .input-field input[type=search]:not(.browser-default):focus:not([readonly])+label+i.clear-icon {
+    display: block;
+  }
+  
+  .nav-wrapper form .input-field input[type=search]:not(.browser-default):valid:not([readonly])+label+i.clear-icon {
+    display: block;
+  }
+  
+  .nav-wrapper form .input-field input[type=search]:not(.browser-default):invalid:not([readonly])+label+i.clear-icon {
+    display: none;
+  }
+
+    #homesearch {
+    border-radius: 20px !important;
+    padding: 5px !important;
+    }
+
+    #homesearch input[type=text]:focus + label {
+    color: #000000 !important;
+    }
+
+    #homesearch input[type=text] {
+    border-bottom: 1px solid #4229bc !important;
+    box-shadow: 0 1px 0 0 #3424aa !important;
+    }
+
+    #homesearch input[type=text] {
+        background-color: #ffffff;
+        border-radius: 10px;
+        border: none;
+        box-shadow: none;
+        position: relative;
+        font-size: 16px;
+        height: 40px;
+        padding-left: 30px;
+        padding-right: 20px;
+        width: 200px;
+      }
+      #homesearch .input-field i {
+        color: #000000;      
+
+      }
+
+    .parallax-container {
+    height: 500px;
+    }

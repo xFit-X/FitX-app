@@ -13,7 +13,14 @@
 			<div class="col s12 m6">
 				<h2>Get Fit with Our Workouts</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
-				<a class="waves-effect waves-light btn" href="/allworkouts">View Workouts</a>
+				<!-- <a class="waves-effect waves-light btn" href="/allworkouts">View Workouts</a> -->
+				<form method="GET" action="{{ url_for('allworkouts_views.searchWorkouts_page')}}" id="searchForm">
+					<div class="input-field rounded" id="homesearch">
+						<input type="text" id="search" name="query" required>
+						<!-- <label for="search">Search Workouts</label> -->
+						<label class="label-icon" for="serach"><i class="material-icons">search</i></label>						
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

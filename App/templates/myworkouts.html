@@ -15,53 +15,10 @@
           <div class="col s12 m6">
             <h3 class="center-align">Weekly Workouts</h3>
             <p class="center-align">A collection of workouts to keep you fit and healthy all week long!</p>
-            <a href="/createworkout" class="waves-effect waves-light btn ">Create Personal Workout</a>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <ul class="collapsible popout">
-      {% for day, work in days.items() %}
-      <li>
-        <div class="collapsible-header">{{ day }}</div>
-        <div class="collapsible-body">
-          <ul>
-            {% for workout in work %}
-            {% for w in workouts %}
-            {% if w.workoutId == workout.workoutId %}
-            <li>
-              <div class="card horizontal">
-                <div class="card-stacked">
-                  <div class="card-content">
-                    <span class="card-title">{{ w.name }}</span>
-                    <p>Sets: {{ workout.sets }} Reps: {{ workout.reps }} Weight: {{ workout.weight }}</p>
-                    <p>Equipment: {{ w.equipment }} Target Muscle: {{ w.muscle }}</p>
-                  </div>
-                  <div class="card-action">                                    
-                    <a class="modal-trigger" href="#modal1" data-workout-id="{{ workout.uwId }}" data-workout-name="{{ w.name }}">Edit</a>
-                    <a href="/myworkouts/{{ workout.uwId }}">Delete</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            {% endif %}
-            {% endfor %}
-            {% endfor %}
-          </ul>
-        </div>
-      </li>
-      {% endfor %}
-    </ul> -->
-    
-    <div class="row">
-      <div class="col s12">
-        <ul  class="tabs">
-          <li class="tab col s6"><a href="#my-workouts">My Workouts</a></li>
-          <li class="tab col s6"><a href="#my-created-workouts">My Created Workouts</a></li>
-        </ul>
-      </div>
-      <div id="my-workouts" class="col s12">
         <ul class="collapsible popout">
           {% for day, work in days.items() %}
           <li>
@@ -94,46 +51,14 @@
           </li>
           {% endfor %}
         </ul>
-      </div>
-      <div id="my-created-workouts" class="col s12">
-        <!-- Add code for My Created Workouts tab content here -->
-        <ul class="collapsible popout">
-          {% for pday, pwork in pworkouts.items() %}
-          <li>
-            <div class="collapsible-header">{{ pday }}</div>
-            <div class="collapsible-body">
-              <ul>
-                {% for pworkout in pwork %}                
-                <li>
-                  <div class="card horizontal">
-                    <div class="card-stacked">
-                      <div class="card-content">
-                        <span class="card-title">{{ pworkout.name }}</span>
-                        <p>Sets: {{ pworkout.sets }} Reps: {{ pworkout.reps }} Weight: {{ pworkout.weight }}</p>
-                        <p>Equipment: {{ pworkout.equipment }} Target Muscle: {{ pworkout.muscle }}</p>
-                      </div>
-                      <div class="card-action">                                    
-                        <a class="modal-trigger" href="#modal1" data-workout-id="{{ pworkout.pwId }}" data-workout-name="{{ pworkout.name }}">Edit</a>
-                        <a href="/myworkouts/{{ pworkout.pwId }}">Delete</a>
-                      </div>
-                    </div>
-                  </div>
-                </li>                
-                {% endfor %}
-              </ul>
-            </div>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
+      
       
     <!-- Repeat section for Wednesday through Sunday -->    
     <div id="modal1" class="modal">
       <div class="modal-content">
         <h4 id="modal-title"></h4>
         <form method="POST" action="{{ url_for('myworkouts_views.editWorkout')}}" id="editForm">
-          <input type="hidden" id="workoutId" name="workoutId" value="1">
+          <input type="hidden" id="workoutId" name="workoutId" value="1">          
           <div class="input-field">
             <input id="sets" type="number" name ="sets" class="validate">
             <label for="sets">Sets</label>
@@ -154,7 +79,12 @@
             <span>{{ day }}</span>
           </label>
           {% endfor %}
-          
+          <div class="input-field">
+            <label>
+              <input type="checkbox" name="public" class="filled-in" />
+              <span>Remove From Public Listing</span>
+            </label>
+          </div> 
           <div class="modal-footer">
             <button type="submit" class="waves-effect waves-green btn-flat">Edit</button>
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>

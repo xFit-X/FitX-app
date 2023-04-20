@@ -89,18 +89,10 @@ def load_workout_command():
     workouts = cache_api_workouts()
     print(f"{len(workouts)} workouts loaded from API")
 
-@workout_cli.command("load2", help="Loads workouts from the api into the database") 
-def load_workout_command():
-    workouts = cache_api_extra_workouts()
-    print(f"{len(workouts)} workouts loaded from API")
-
 @workout_cli.command("list", help="Lists workouts in the database")
 def list_workout_command():
     print(get_all_workouts())
 
-@workout_cli.command("list2", help="Lists workouts in the database")
-def list_workout_command():
-    print(get_all_workouts2())
 
 app.cli.add_command(workout_cli)
 
@@ -113,17 +105,19 @@ myworkout_cli = AppGroup('myworkout', help='User workouts commands')
 
 @myworkout_cli.command("save", help="Save workout for user into into the database")
 @click.argument("username", default="bob")
+@click.argument("name", default="MyWorkout")
 @click.argument("workoutid", default="53")
 @click.argument("sets", default="3")
 @click.argument("reps", default="8")
 @click.argument("weight", default="25lbs")
 @click.argument("day", default="mon")
-def save_workout_command(username, workoutid, sets, reps, weight, day):
+@click.argument("pub", default=True)
+def save_workout_command(username, workoutid,name, sets, reps, weight, day,pub):
   user = User.query.filter_by(username=username).first()
   if user:
-    new_workout = save_workout(user.id, workoutid, sets, reps, weight, day)
+    new_workout = save_workout(user.id, workoutid,name, sets, reps, weight, day,pub)
     workout = get_workout_by_id(new_workout.workoutId)
-    print(f'Workout:{new_workout.uwId} {workout.name} {new_workout.sets} {new_workout.day} {new_workout.weight} created!')
+    print(f'Workout:{new_workout.uwId} {new_workout.name} {workout.name} {new_workout.sets} {new_workout.day} {new_workout.weight} {new_workout.pub}created!')
   else:
     print(f'{username} not found!')
 
@@ -134,12 +128,13 @@ def save_workout_command(username, workoutid, sets, reps, weight, day):
 @click.argument("reps", default="10")
 @click.argument("weight", default="body")
 @click.argument("day", default="tue")
-def edit_workout_command(username, uwid, sets, reps, weight, day):
+@click.argument("pub", default=False)
+def edit_workout_command(username, uwid, sets, reps, weight, day,pub):
   user = User.query.filter_by(username=username).first()
   if user:
-    new_workout = edit_workout(uwid,user.id,sets,reps,weight,day)
+    new_workout = edit_workout(uwid,user.id,sets,reps,weight,day,pub)
     workout = get_workout_by_id(new_workout.workoutId)
-    print(f'Workout:{new_workout.uwId} {workout.name} sets:{new_workout.sets} reps:{new_workout.reps} weight:{new_workout.weight} {new_workout.day} edited!')
+    print(f'Workout:{new_workout.uwId} {workout.name} sets:{new_workout.sets} reps:{new_workout.reps} weight:{new_workout.weight} {new_workout.day} {new_workout.pub}edited!')
   else:
     print(f'{username} not found!')
 
@@ -173,14 +168,6 @@ def list_workout_by_day_command(username, day):
 @myworkout_cli.command("list", help="Lists all user workouts in the database")
 def list_all_user_workout_command():
     workout = get_all_user_workouts()
-    if workout:
-        print(workout)
-    else:
-        print(f'No workouts')
-
-@myworkout_cli.command("list2", help="Lists all user workouts in the database")
-def list_all_user_workout_command():
-    workout = get_all_user_workouts2()
     if workout:
         print(workout)
     else:

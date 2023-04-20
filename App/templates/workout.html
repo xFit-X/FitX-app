@@ -43,6 +43,10 @@
         <form method="POST" action="{{ url_for('workout_views.saveWorkout')}}" id="saveForm">
           <input type="hidden" id="workoutId" name="workoutId" value="1">
           <div class="input-field">
+            <input id="pname" type="text" name ="pname" class="validate">
+            <label for="pname">Pesonal Name</label>
+          </div>
+          <div class="input-field">
             <input id="sets" type="number" name ="sets" class="validate">
             <label for="sets">Sets</label>
           </div>
@@ -61,7 +65,13 @@
             <input type="radio" name="day" value="{{ value }}" />
             <span>{{ day }}</span>
           </label>
-          {% endfor %}          
+          {% endfor %}
+          <div class="input-field">
+            <label>
+              <input type="checkbox" name="public" class="filled-in" />
+              <span>Add to Public Listing</span>
+            </label>
+          </div>          
           <div class="modal-footer">
             <button type="submit" class="waves-effect waves-green btn-flat">Save</button>
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
