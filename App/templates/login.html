@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}FitX{% endblock %}
+
+{% block page %}FitX{% endblock %}
+
+
+{% block content %}
+
+<div class="row center-align">
+  <div class="col s12 m6 offset-m3">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title center">Login</span>
+        <form id="loginForm" method="POST" action="/login" style="padding:1em">
+          <div class="row">
+            <div class="input-field col s12">              
+              <input id="username" name="username" type="text" class="validate" style="border-radius: 20px; border: 2px solid #ccc;">
+              <label for="username" >Username</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input name="password" id="password" type="password" class="validate" style="border-radius: 20px; border: 2px solid #ccc;">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row justify-content">
+            <div class="center">
+              <input type="submit" class="black text-white btn" value="Sign In">
+            </div>
+            <br>
+            <div class="center">
+              <a href="/signup">New to FitX? Sign Up</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

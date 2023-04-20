@@ -3,11 +3,10 @@ from flask_login import UserMixin
 from App.database import db
 
 class User(db.Model, UserMixin):
-    __abstract__ = True
     id = db.Column(db.Integer, primary_key=True)
-    username =  db.Column(db.String, nullable=False, unique=True)
-    user_type =  db.Column(db.String, nullable=False)
+    username =  db.Column(db.String, nullable=False, unique=True)    
     password = db.Column(db.String(120), nullable=False)
+    workouts = db.relationship('UserWorkout', backref='user1', lazy=True, cascade="all, delete-orphan")
 
     def __init__(self, username, password):
         self.username = username

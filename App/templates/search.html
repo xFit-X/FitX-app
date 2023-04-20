@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}FitX{% endblock %}
+
+{% block page %}FitX{% endblock %}
+{%block content%}
+<main>
+    
+        <div class="container">
+            <h2>Search result: "{{search}}"</h2>
+            <ul>
+            {%if workouts%}
+            {% for workout in workouts %}
+            <li>
+                <div class="card horizontal">
+                    <div class="card-stacked">
+                        <div class="card-content">
+                        <span class="card-title">{{ workout.name }}</span>
+                        <p>Sets: {{ workout.sets }} Reps: {{ workout.reps }} Weight: {{ workout.weight }}</p>
+                        <p>Equipment: {{ workout.equipment }} Target Muscle: {{ workout.muscle }}</p>
+                        </div>
+                    
+                    </div>
+                </div>
+            </li>      
+            {% endfor %}
+            {%else%}
+            <h6>Not Found</h6>
+            {% endif %}
+            </ul>
+        </div>
+    
+ </main>
+ {% endblock %}

@@ -7,15 +7,15 @@ def load_config():
     config = {'ENV': os.environ.get('ENV', 'DEVELOPMENT')}
     delta = 7
     if config['ENV'] == "DEVELOPMENT":
-        from .custom_config import JWT_ACCESS_TOKEN_EXPIRES, SQLALCHEMY_DATABASE_URI, SECRET_KEY, RAWG_TOKEN
+        from .custom_config import JWT_ACCESS_TOKEN_EXPIRES, SQLALCHEMY_DATABASE_URI, SECRET_KEY, NINJA_TOKEN
         config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
         config['SECRET_KEY'] = SECRET_KEY
-        config['RAWG_TOKEN'] = RAWG_TOKEN
+        config['NINJA_TOKEN'] = NINJA_TOKEN
         delta = JWT_ACCESS_TOKEN_EXPIRES
     else:
         config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
         config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-        config['RAWG_TOKEN'] = os.environ.get('RAWG_TOKEN')
+        config['NINJA_TOKEN'] = os.environ.get('NINJA_TOKEN')
         config['DEBUG'] = config['ENV'].upper() != 'PRODUCTION'
         delta = int(os.environ.get('JWT_ACCESS_TOKEN_EXPIRES', 7))
 
