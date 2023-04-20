@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, render_template, request, send_from_directory, jsonify, flash, url_for
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, current_user
 
 auth_views = Blueprint('auth_views', __name__, template_folder='../templates')
 from App.models import db, User
@@ -7,6 +7,8 @@ from App.controllers import login, user_required
 
 @auth_views.route("/")
 def login_page():
+  if current_user.is_authenticated:
+    logout_user()
   return render_template('login.html')
 
 @auth_views.route('/signup', methods=['GET'])

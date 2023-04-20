@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}FitX{% endblock %}
+
+{% block page %}FitX{% endblock %}
+{%block content%}
+<main>
+    
+        <div class="container">
+            <h2>User Workouts</h2>
+            <ul>
+            {%if listing%}
+            {% for list in listing %}
+            {% for workout in workouts %}
+            {% if list.workoutId == workout.workoutId %}
+            <li>
+                <div class="card horizontal">
+                    <div class="card-stacked">
+                        <div class="card-content">
+                        <span class="card-title">{{ list.name }}</span>
+                        <p>Workouts Details:</p>
+                        <p>{{workout.name}}</p>
+                        <p>Sets: {{ list.sets }} Reps: {{ list.reps }} Weight: {{ list.weight }}</p>
+                        <p>Equipment: {{ workout.equipment }} Target Muscle: {{ workout.muscle }}</p>
+                        <p>Type: {{ workout.type }}
+                        </div>
+                        <a href="/savelisting/{{list.uwId}}" class="waves-effect waves-light btn ">Save</a> 
+                    
+                    </div>
+                </div>
+            </li> 
+            {% endif %}
+            {% endfor %}     
+            {% endfor %}
+            {%else%}
+            <h6>Non Listed</h6>
+            {% endif %}
+            </ul>
+        </div>
+    
+ </main>
+ {% endblock %}

@@ -42,7 +42,9 @@ def myworkouts_page():
 @user_required
 def editWorkout():
     data = request.form
-    pub = request.form.get('public') == 'on'
+    check = request.form.get('public') == 'on'
+    if check:
+        pub = False
     new_workout = edit_workout(data["workoutId"],current_user.id, data["sets"], data["reps"], data["weight"], data["day"],pub)
     if(new_workout):
         flash("Successfully Edited")

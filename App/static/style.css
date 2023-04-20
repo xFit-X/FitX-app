@@ -35,7 +35,7 @@ html{
     background-color: var(--alert);
     position: relative;
     padding: 1em;
-    color: rgb(75, 0, 130);
+    color: rgb(15, 27, 164);
   }
 
   #close {

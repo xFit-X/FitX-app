@@ -58,6 +58,31 @@ def get_all_user_workouts():
 
 def get_user_workouts(userId):
   return UserWorkout.query.filter_by(userId=userId).all() 
+
+def get_listing():
+  return UserWorkout.query.filter_by(pub=True).all()
+
+def save_listing_workout(uwId, userId):
+    workout = UserWorkout.query.filter_by(uwId=uwId).first()
+    if workout is None:
+        return None
+    if workout.userId == userId:
+        return None
+    else:
+        new_workout = UserWorkout(name=workout.name,
+                                  workoutId=workout.workoutId,
+                                  sets=workout.sets,
+                                  reps=workout.reps,
+                                  weight=workout.weight,
+                                  day=workout.day,
+                                  userId=userId,
+                                  pub=False)
+        db.session.add(new_workout)
+        db.session.commit()
+        return new_workout
+
+
+
   
  
     
