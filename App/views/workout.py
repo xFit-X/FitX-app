@@ -21,6 +21,7 @@ def saveWorkout():
 
 
 @workout_views.route('/workouts/<value>', methods=['GET'])
+@user_required
 def workout_page(value):
 
     type_group = ["cardio", "plyometrics", "strength","stretching","strongman","powerlifting"]
@@ -36,10 +37,10 @@ def workout_page(value):
     elif value in difficulty_group:
       difficulty = value
    
-    w_days = {"Monday": "mon", "Tuesday": "tue", 
-    "Wednesday": "wed", "Thursday": 
-    "thu", "Friday": "fri", 
-    "Saturday": "sat", "Sunday": "sun"}
+    w_days = {"Monday": "Monday", "Tuesday": "Tuesday", 
+    "Wednesday": "Wednesday", "Thursday": 
+    "Thursday", "Friday": "Friday", 
+    "Saturday": "Saturday", "Sunday": "Sunday"}
     workouts = get_all_workouts1(muscle=muscle, workout_type=workout_type, difficulty=difficulty)    
     return render_template('workout.html', workouts=workouts, value=value.title(), w_days=w_days)
    

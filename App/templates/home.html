@@ -3,21 +3,19 @@
 {% block page %}Home{% endblock %}
 
 {% block content%}
-
+<main>
 <div class="parallax-container">
-	<div class="parallax"><img src="https://materializecss.com/images/parallax1.jpg"></div>
+	<div class="parallax"><img src="https://i.imgur.com/hOiN5DN.jpg"></div>			
 </div>
 	
-	<div class="container">
-		<div class="row">
+	<div  class= "container"  >
+		<div class="row" >
 			<div class="col s12 m6">
 				<h2>Get Fit with Our Workouts</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
-				<!-- <a class="waves-effect waves-light btn" href="/allworkouts">View Workouts</a> -->
+				<p>Your only limit is the one you set for yourself. Believe in yourself, push past the pain, and achieve the impossible.</p>				
 				<form method="GET" action="{{ url_for('allworkouts_views.searchWorkouts_page')}}" id="searchForm">
 					<div class="input-field rounded" id="homesearch">
 						<input type="text" id="search" name="query" required>
-						<!-- <label for="search">Search Workouts</label> -->
 						<label class="label-icon" for="serach"><i class="material-icons">search</i></label>						
 					</div>
 				</form>
@@ -25,8 +23,8 @@
 		</div>
 	</div>
   <div class="parallax-container">
-    <div class="parallax"><img src="https://materializecss.com/images/parallax2.jpg"></div>  
+    <div class="parallax"><img src="https://imgur.com/F5zX4Pt.jpg"></div>  
 </div>
-
+</main>
 {% endblock %}
 

@@ -6,6 +6,14 @@ from App.controllers import (
     user_required
 )
 
+
+
+@index_views.errorhandler(404)
+@user_required 
+def not_found_error(e): 
+  return render_template('404.html'), 404
+
+
 @index_views.route('/home', methods=['GET'])
 @user_required
 def index_page():

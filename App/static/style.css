@@ -1,17 +1,67 @@
 html{
     height: 100vh;
+    /* position: relative; */
+    min-height: 100%;
   }
   
   body{
     height: 100%;
+    min-height: 100vh;
+    flex-direction: column; 
+    font-family: 'Congenial', sans-serif;
+ 
+  }
+   main {
+    flex: 1 0 auto;
+    min-height: 75vh;
+  } 
+
+  .exercise-img {
+    height: 200px ; 
+    width: 200px;
+    
   }
 
+.brand-logo{
+  height: 60px;
+  width: 60px;
+}
+.logo-img {
+  height: 100px;
+  width: 100px;
+}
+  
+.notfoundcontainer{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+.notfound{
+  text-align: center;
+  font-size: 175px;
+  color:#554f4f;
+}
+  .collapsible-body {
+    background-color: #ffffff;
+    width: 600px;
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-align: center;
+    padding: 20px;
+  }
+  .scrollable {
+    overflow-y: scroll;
+}
+  
+
   .collapsible-header {
-    /* font-size: 30px;
-    text-align: right; */
+    
     font-size: 20px; /* set font size to your desired size */
-    text-align: center; /* center align the header text */
-     /* set width to your desired size */
+    text-align: right; /* center align the header text */
+    
     margin: 0 auto;
   }
   .collapsible {
@@ -81,8 +131,8 @@ html{
     transform: translateY(-16%);
   }
 
-  .brand-logo {
-    font-size: 2em; /* adjust the size as needed */
+  /* .brand-logo {
+    font-size: 2em; 
   }
 
   .brand-logo::before {
@@ -93,9 +143,12 @@ html{
     content: "X";
     color: blue;
     text-shadow: 1px 1px red;
-    font-size: 1.5em; /* adjust the size as needed */
-  }
+    font-size: 1.5em; 
+  } */
 
+  #banner{
+    height: 300px;
+  }
   .nav-wrapper form .input-field i.clear-icon {
     display: none;
     cursor: pointer;
@@ -132,8 +185,8 @@ html{
     }
 
     #homesearch input[type=text] {
-    border-bottom: 1px solid #4229bc !important;
-    box-shadow: 0 1px 0 0 #3424aa !important;
+    border-bottom: 1px solid #000000 !important;
+    box-shadow: 0 1px 0 0 #000000 !important;
     }
 
     #homesearch input[type=text] {

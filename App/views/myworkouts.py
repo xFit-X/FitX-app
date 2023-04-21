@@ -28,27 +28,60 @@ def myworkouts_page():
     ]
 
     workouts_dict = {}
-    for day in w_workouts:
-        workouts_dict[week_workouts[w_workouts.index(day)]] = get_workouts_by_day(current_user.id, day)
+    for day in week_workouts:
+        workouts_dict[week_workouts[week_workouts.index(day)]] = get_workouts_by_day(current_user.id, day)
     workouts = get_all_workouts()
 
-    w_days = {"Monday": "mon", "Tuesday": "tue", 
-    "Wednesday": "wed", "Thursday": 
-    "thu", "Friday": "fri", 
-    "Saturday": "sat", "Sunday": "sun"}
+    w_days = {"Monday": "Monday", "Tuesday": "Tuesday", 
+    "Wednesday": "Wednesday", "Thursday": 
+    "Thursday", "Friday": "Friday", 
+    "Saturday": "Saturday", "Sunday": "Sunday"}
     return render_template('myworkouts.html', days = workouts_dict, workouts = workouts, w_days=w_days)
 
 @myworkouts_views.route('/myworkouts', methods=['POST'])
 @user_required
 def editWorkout():
     data = request.form
-    check = request.form.get('public') == 'on'
-    if check:
+    if not data.get('pname'):
+        pname = None
+    else:
+        pname = data.get('pname')
+
+    if not data.get('sets'):
+        sets = None
+    else:
+        sets = data.get('sets')
+
+    if not data.get('reps'):
+        reps = None
+    else: 
+        reps = data.get('reps')
+
+    if not data.get('day'):
+        day = None
+    else:
+        day = data.get('day')
+
+    if not data.get('weight'):
+        weight = None
+    else:
+        weight = data.get('weight')
+
+    pub = None
+    rempublic = request.form.get('public') == 'remove'
+    addpublic = request.form.get('public') == 'add'
+
+    if rempublic:
         pub = False
-    new_workout = edit_workout(data["workoutId"],current_user.id, data["sets"], data["reps"], data["weight"], data["day"],pub)
+    elif addpublic:
+        pub = True
+        
+    new_workout = edit_workout(data["workoutId"],current_user.id,pname, sets, reps, weight, day,pub)
     if(new_workout):
         flash("Successfully Edited")
         # workout = get_workout_by_id(new_workout.workoutId)
+        return redirect(request.referrer)
+    else:
         return redirect(request.referrer)
 
 

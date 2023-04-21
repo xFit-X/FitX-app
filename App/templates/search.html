@@ -4,7 +4,7 @@
 
 {% block page %}FitX{% endblock %}
 {%block content%}
-<main>
+<main class="container">
     
         <div class="container">
             <h2>Search result: "{{search}}"</h2>
@@ -16,7 +16,7 @@
                     <div class="card-stacked">
                         <div class="card-content">
                         <span class="card-title">{{ workout.name }}</span>
-                        <p>Sets: {{ workout.sets }} Reps: {{ workout.reps }} Weight: {{ workout.weight }}</p>
+                        <p>Sets: {{ workout.type }} Diffculty: {{ workout.difficulty }}</p>
                         <p>Equipment: {{ workout.equipment }} Target Muscle: {{ workout.muscle }}</p>
                         </div>
                     
@@ -25,10 +25,9 @@
             </li>      
             {% endfor %}
             {%else%}
-            <h6>Not Found</h6>
+            <h1 class="notfound">¯\_(ツ)_/¯</h1>
             {% endif %}
             </ul>
         </div>
-    
- </main>
+</main>
  {% endblock %}

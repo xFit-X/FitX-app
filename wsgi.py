@@ -12,6 +12,11 @@ from App.controllers import *
 app = create_app()
 migrate = get_migrate(app)
 
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html')
+
 #This command creates and initializes the database
 @app.cli.command("init", help="Creates and initializes the database")
 def initialize_db():

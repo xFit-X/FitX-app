@@ -3,7 +3,12 @@ from flask_login import login_user, logout_user, current_user
 
 auth_views = Blueprint('auth_views', __name__, template_folder='../templates')
 from App.models import db, User
-from App.controllers import login, user_required
+from App.controllers import login, user_required, login_manager
+
+
+@login_manager.unauthorized_handler
+def no_auth():
+    return redirect('/')
 
 @auth_views.route("/")
 def login_page():
@@ -20,7 +25,7 @@ def login_action():
   data = request.form
   user = login(data['username'], data['password'])
   if user:  # check credentials
-    flash('Logged in successfully.')  # send message to next page
+    # send message to next page
     login_user(user)  # login the user
     return redirect('/home')  # redirect to main page if login successful
   else:
@@ -34,7 +39,6 @@ def signup_action():
   try:
     db.session.add(newuser)
     db.session.commit()  # save user
-    #login_user(newuser)  # login the user
     flash('Account Created!')  # send message
     return redirect(url_for('auth_views.login_page'))  # redirect to homepage
   except Exception as e:  # attempted to insert a duplicate user

@@ -49,15 +49,6 @@ navbarSearch.value = '';
 navbarClearIcon.style.display = 'none';
 });
 
-var buttons = document.querySelectorAll('.modal-trigger2');
-for (var i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener('click', function() {
-    var workoutId = this.getAttribute('data-pworkout-id');
-    var workoutName = this.getAttribute('data-pworkout-name');
-    document.getElementById('modal-title2').innerHTML = workoutName;
-    document.getElementById('pwid').value = workoutId;
-  });
-}
 
 
 main();

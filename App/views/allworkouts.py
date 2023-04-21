@@ -13,7 +13,35 @@ from App.controllers import (
 @allworkouts_views.route('/allworkouts', methods=['GET'])
 @user_required
 def allworkouts_page():
-    return render_template('allworkouts.html')
+    allexercises = {
+        "Muscle Group": {
+            "abdominals": "https://i.imgur.com/ITkNaQF.jpg",
+            "chest": "https://i.imgur.com/64E9dwe.jpg",
+            "glutes": "https://i.imgur.com/akYHUfu.jpg",
+            "biceps": "https://i.imgur.com/8CbLSfK.jpg",
+            "quadriceps": "https://i.imgur.com/JkFAUR4.jpg",
+            "lower_back": "https://i.imgur.com/XZ28MRQ.jpg",
+            "abductors": "https://i.imgur.com/zSszIKa.jpg",
+            "calves": "https://i.imgur.com/ae5g2vw.jpg",
+            "hamstrings": "https://i.imgur.com/ITkNaQF.jpg"
+        },
+        
+        "Difficulty": {
+            "beginner": "https://i.imgur.com/mkmFc96.jpg",
+            "intermediate": "https://i.imgur.com/yj68wj9.jpg",
+            "expert": "https://i.imgur.com/ahtB3nB.jpg"
+        },
+        "Type": {
+            "cardio": "https://i.imgur.com/KunmoF9.jpg",
+            "plyometrics": "https://i.imgur.com/s7Ixets.jpg",
+            "strength": "https://i.imgur.com/O8gPRcQ.jpg",
+            "stretching": "https://i.imgur.com/DcqbcjV.jpg",
+            "strongman": "https://i.imgur.com/itYgSYL.jpg",
+            "powerlifting": "https://i.imgur.com/km1LYQY.jpg"
+        }
+    }
+
+    return render_template('allworkouts.html',allexercises = allexercises)
 
 @allworkouts_views.route('/listing', methods=['GET'])
 @user_required
