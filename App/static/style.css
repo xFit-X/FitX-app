@@ -40,7 +40,7 @@ html{
 }
 .notfound{
   text-align: center;
-  font-size: 175px;
+  font-size: 160px;
   color:#554f4f;
 }
   .collapsible-body {
@@ -65,8 +65,7 @@ html{
     margin: 0 auto;
   }
   .collapsible {
-    /* font-size: 30px;
-    text-align: right; */
+    
     width: 60%; /* set width to your desired size */
     margin: 0 auto;
   }
@@ -131,20 +130,6 @@ html{
     transform: translateY(-16%);
   }
 
-  /* .brand-logo {
-    font-size: 2em; 
-  }
-
-  .brand-logo::before {
-    content: "Fit";
-  }
-
-  .brand-logo::after {
-    content: "X";
-    color: blue;
-    text-shadow: 1px 1px red;
-    font-size: 1.5em; 
-  } */
 
   #banner{
     height: 300px;

@@ -64,6 +64,6 @@ def listing_action(uwId):
 @allworkouts_views.route('/search', methods=['GET'])
 @user_required
 def searchWorkouts_page():
-    query = request.args.get('query')
+    query = request.args.get('query')    
     workouts = get_workout(query)
     return render_template('search.html', workouts=workouts, search=query) 
