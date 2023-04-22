@@ -40,7 +40,7 @@
                               <div class="card hoverable">
                                   <div class="card-image">
                                       <img class="exercise-img" src="{{ img_link }}">
-                                      <span class="card-title black-text bold">{{ exercise|title }}</span>
+                                      <span class="card-title black bold" id ="all_workouts">{{ exercise|title }}</span>
                                       <a class="btn-floating halfway-fab waves-effect waves-light red lighten-1" href="{{ url_for('workout_views.workout_page', value=exercise) }}" ><i class="material-icons">arrow_forward</i></a>
                                   </div>
                               </div>

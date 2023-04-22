@@ -23,11 +23,11 @@ def allworkouts_page():
             "lower_back": "https://i.imgur.com/XZ28MRQ.jpg",
             "abductors": "https://i.imgur.com/zSszIKa.jpg",
             "calves": "https://i.imgur.com/ae5g2vw.jpg",
-            "hamstrings": "https://i.imgur.com/ITkNaQF.jpg"
+            "hamstrings": "https://i.imgur.com/nwMI9X9.jpg"
         },
         
         "Difficulty": {
-            "beginner": "https://i.imgur.com/mkmFc96.jpg",
+            "beginner": "https://i.imgur.com/Q591BDn.jpg",
             "intermediate": "https://i.imgur.com/yj68wj9.jpg",
             "expert": "https://i.imgur.com/ahtB3nB.jpg"
         },
