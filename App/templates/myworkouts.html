@@ -28,7 +28,7 @@
 <main >
   <br>
   <br>    
-        <ul class="collapsible popout" >
+        <ul class="collapsible popout reponsive" >
           {% for day, work in days.items() %}
           <li>
             <div class="collapsible-header" >{{ day }}</div>
@@ -38,15 +38,13 @@
                 {% for w in workouts %}
                 {% if w.workoutId == workout.workoutId %}
                 <li>
-                  <div class="card grey lighten-3">
-                    
-                      <div class="card-content">
-                        <!-- <span class="card-title activator white-text" style="background-color: #000000">{{workout.name|title}}<i class="material-icons right tooltipped" data-position="bottom" data-tooltip="Click for Instructions">more_vert</i></span> -->
-                        <span class="card-title text-darken-4 center-align white-text" style="background-color: #000000; font-size:medium" >{{ workout.name }}
-                          <i class="material-icons activator right tooltipped" data-position="bottom" data-tooltip="Click for Instructions">more_vert</i></span>
+                  <div class="card grey lighten-3">                    
+                      <div class="card-content">                        
+                        <span class="card-title activator center-align white-text" style="background-color: #000000"><b>{{ workout.name|title }}</b><i class="material-icons right tooltipped" data-position="bottom" data-tooltip="Click for Instructions">more_vert</i></span>                          
                         <div class="divider grey darken-4"></div>
                         <div class="row left-align">
                           <p><b>Workouts Details:</b></p>
+                          <div class="divider grey darken-4"></div>
                           <br>
                             <div class="col s6">
                                 <p><strong>Name: {{w.name}}</strong></p>
@@ -60,19 +58,17 @@
                                 <p>Target Muscle: {{ w.muscle }}</p>
                                 <p>Type: {{ w.type }}</p>                                
                             </div>
-                        </div>  
-                        <div class="card-reveal grey lighten-3">
-                          <span class="card-title text-darken-4 center-align white-text" style="background-color: #808080; font-size:medium" >{{ workout.name }}<i class="material-icons right">close</i></span>
-                          <p>{{ w.instructions }}</p>
                         </div>
+                        <div class="divider grey darken-4"></div>                          
                         <div class="card-action">                                    
                           <a class="modal-trigger waves-effect waves-red btn" id="actbtn" href="#modal1" data-workout-id="{{ workout.uwId }}" data-workout-name="{{ w.name }}">Edit</a>
                           <a class="waves-effect waves-red btn" id="actbtn" href="/myworkouts/{{ workout.uwId }}">Delete</a>
-                        </div> 
-                                                                     
+                        </div>                                                                   
                       </div>
-                      
-                    
+                      <div class="card-reveal grey lighten-3 left-align">
+                        <span class="card-title text-darken-4 center-align white-text" style="background-color: #808080; font-size:medium" >{{ workout.name }}<i class="material-icons right">close</i></span>
+                        <p>{{ w.instructions }}</p>
+                      </div>                    
                   </div>
                 </li>
                 {% endif %}

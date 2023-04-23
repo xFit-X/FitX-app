@@ -37,6 +37,7 @@
           <span class="card-title activator text-darken-4 center-align white-text" style="background-color: #000000; font-size:medium" >{{ workout.name }}<i class="material-icons right tooltipped" data-position="bottom" data-tooltip="Click for Instructions">more_vert</i></span>
           <div class="divider grey darken-4"></div>
           <p>Type: {{ workout.type }}</p>
+          <p>Target Muscle: {{ workout.muscle }}</p>
           <p>Equipment: {{ workout.equipment }}</p>
           <p>Difficulty: {{ workout.difficulty }}</p>          
           <a class="btn-floating halfway-fab waves-effect waves-light modal-trigger tooltipped" style="background-color: #FF3131;" data-position="left" data-tooltip="Save" href="#modal1" data-workout-id="{{ workout.workoutId }}" data-workout-name="{{ workout.name }}"><i class="material-icons">fitness_center</i></a>

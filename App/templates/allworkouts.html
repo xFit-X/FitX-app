@@ -25,13 +25,12 @@
 <main>
       {% for key, value in allexercises.items() %}
         {% if key == 'Difficulty' %}
-            <section class="section blue-grey lighten-5">
+        <section class="section blue-grey lighten-5">
         {%else%}
         <section class="section">
             {%endif%}
-          <div class="container">
-              
-                  <h3>{{ key|title }}</h3>
+          <div class="container">              
+                  <h3>{{ key|title }}</h3>                  
                   <div class="row">
                       {% for exercise, img_link in value.items() %}
                           <div class="col s12 m4">
