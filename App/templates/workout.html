@@ -32,9 +32,9 @@
     <ul class="scrollable" style="height: 500px;">
     {% for workout in workouts %}
     <div class="col s12 m6"> 
-      <div class="card grey lighten-1">        
+      <div class="card grey lighten-3">        
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4 center">{{ workout.name }}<i class="material-icons right tooltipped" data-position="bottom" data-tooltip="Click for Instructions">more_vert</i></span>
+          <span class="card-title activator text-darken-4 center-align white-text" style="background-color: #000000; font-size:medium" >{{ workout.name }}<i class="material-icons right tooltipped" data-position="bottom" data-tooltip="Click for Instructions">more_vert</i></span>
           <div class="divider grey darken-4"></div>
           <p>Type: {{ workout.type }}</p>
           <p>Equipment: {{ workout.equipment }}</p>
@@ -42,7 +42,7 @@
           <a class="btn-floating halfway-fab waves-effect waves-light modal-trigger tooltipped" style="background-color: #FF3131;" data-position="left" data-tooltip="Save" href="#modal1" data-workout-id="{{ workout.workoutId }}" data-workout-name="{{ workout.name }}"><i class="material-icons">fitness_center</i></a>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{ workout.name }}<i class="material-icons right">close</i></span>
+          <span class="card-title text-darken-4 center-align white-text" style="background-color: #808080; font-size:medium">{{ workout.name }}<i class="material-icons right">close</i></span>
           <p>{{ workout.instructions }}</p>
         </div>
       </div>
@@ -93,8 +93,8 @@
        
           <div class="divider grey darken-4"></div>         
           <div class="modal-footer">
-            <button type="submit" class="waves-effect waves-green btn-flat">Save</button>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+            <button type="submit" id="actbtn" class="waves-effect waves-green btn-flat">Save</button>
+            <a href="#!" id="actbtn" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
           </div>
         </form>
       </div>

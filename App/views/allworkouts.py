@@ -57,9 +57,9 @@ def listing_page():
 def listing_action(uwId):
     workout = save_listing_workout(uwId,current_user.id)    
     if workout:
-        flash('Successfully Saved' + " " + workout.name)
+        flash('Successfully Saved!' + " " + workout.name)
     else:
-        flash('Already Saved')
+        flash('Already Saved!')
     return redirect(request.referrer)
 
 #returns multiple workouts

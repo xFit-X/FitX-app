@@ -28,29 +28,50 @@
 <main >
   <br>
   <br>    
-        <ul class="collapsible" >
+        <ul class="collapsible popout" >
           {% for day, work in days.items() %}
           <li>
             <div class="collapsible-header" >{{ day }}</div>
-            <div class="collapsible-body" style="background-color: rgb(255, 255, 255);">
+            <div class="collapsible-body" >
               <ul>
                 {% for workout in work %}
                 {% for w in workouts %}
                 {% if w.workoutId == workout.workoutId %}
                 <li>
-                  <div class="card grey lighten-1">
-                    <div class="card grey lighten-1">
+                  <div class="card grey lighten-3">
+                    
                       <div class="card-content">
-                        <span class="card-title">{{ w.name }} - {{workout.name}}</span>
+                        <!-- <span class="card-title activator white-text" style="background-color: #000000">{{workout.name|title}}<i class="material-icons right tooltipped" data-position="bottom" data-tooltip="Click for Instructions">more_vert</i></span> -->
+                        <span class="card-title activator text-darken-4 center-align white-text" style="background-color: #000000; font-size:medium" >{{ workout.name }}<i class="material-icons right tooltipped" data-position="bottom" data-tooltip="Click for Instructions">more_vert</i></span>
                         <div class="divider grey darken-4"></div>
-                        <p>Sets: {{ workout.sets }} Reps: {{ workout.reps }} Weight: {{ workout.weight }}</p>
-                        <p>Equipment: {{ w.equipment }} Target Muscle: {{ w.muscle }}</p>
+                        <div class="row left-align">
+                          <p><b>Workouts Details:</b></p>
+                          <br>
+                            <div class="col s6">
+                                <p><strong>Name: {{w.name}}</strong></p>
+                                <p>Weight: {{ workout.weight }}</p>
+                                <p>Sets: {{ workout.sets}}</p>
+                                <p>Reps: {{ workout.reps }}</p>
+                            </div>
+                            <div class="col s2"></div>                
+                            <div class="col s6">
+                                <p>Equipment: {{ w.equipment  }}</p>
+                                <p>Target Muscle: {{ w.muscle }}</p>
+                                <p>Type: {{ w.type }}</p>                                
+                            </div>
+                        </div>  
+                        <div class="card-reveal grey lighten-3">
+                          <span class="card-title text-darken-4 center-align white-text" style="background-color: #808080; font-size:medium" >{{ workout.name }}<i class="material-icons right">close</i></span>
+                          <p>{{ w.instructions }}</p>
+                        </div>
+                        <div class="card-action">                                    
+                          <a class="modal-trigger waves-effect waves-red btn" id="actbtn" href="#modal1" data-workout-id="{{ workout.uwId }}" data-workout-name="{{ w.name }}">Edit</a>
+                          <a class="waves-effect waves-red btn" id="actbtn" href="/myworkouts/{{ workout.uwId }}">Delete</a>
+                        </div> 
+                                                                     
                       </div>
-                      <div class="card-action">                                    
-                        <a class="modal-trigger" href="#modal1" data-workout-id="{{ workout.uwId }}" data-workout-name="{{ w.name }}">Edit</a>
-                        <a href="/myworkouts/{{ workout.uwId }}">Delete</a>
-                      </div>
-                    </div>
+                      
+                    
                   </div>
                 </li>
                 {% endif %}
@@ -110,8 +131,8 @@
          
           <div class="divider grey darken-4"></div>
           <div class="modal-footer" >
-            <button type="submit" class="waves-effect waves-green btn-flat">Edit</button>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+            <button id="actbtn" type="submit" class="waves-effect waves-green btn" >Edit</button>
+            <a href="#!" id="actbtn" class="modal-close waves-effect waves-green btn">Cancel</a>
           </div>
         </form>
       </div>

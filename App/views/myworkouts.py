@@ -78,7 +78,7 @@ def editWorkout():
         
     new_workout = edit_workout(data["workoutId"],current_user.id,pname, sets, reps, weight, day,pub)
     if(new_workout):
-        flash("Successfully Edited")
+        flash("Successfully Edited!")
         # workout = get_workout_by_id(new_workout.workoutId)
         return redirect(request.referrer)
     else:
@@ -90,7 +90,7 @@ def editWorkout():
 @user_required
 def deleteWorkout(uwid):
     if delete_workout(uwid,current_user.id):
-        flash("Successfully Deleted")
+        flash("Successfully Deleted!")
         # workout = get_workout_by_id(new_workout.workoutId)
         return redirect(request.referrer)
 

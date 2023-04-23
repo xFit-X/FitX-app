@@ -44,9 +44,9 @@ html{
   color:#554f4f;
 }
   .collapsible-body {
-    background-color: #ffffff;
+    background-color: #FF3131;
     width: 600px;
-    height: 250px;
+    height: 325px;
     overflow-x: hidden;
     overflow-y: scroll;
     text-align: center;
@@ -60,13 +60,13 @@ html{
   .collapsible-header {
     
     font-size: 20px; /* set font size to your desired size */
-    text-align: right; /* center align the header text */
+    text-align: center; /* center align the header text */
     
     margin: 0 auto;
   }
   .collapsible {
     
-    width: 60%; /* set width to your desired size */
+    width: 40%; /* set width to your desired size */
     margin: 0 auto;
   }
 
@@ -84,14 +84,14 @@ html{
     background-color: var(--alert);
     position: relative;
     padding: 1em;
-    color: rgb(15, 27, 164);
+    color: #FF3131;
   }
 
   #close {
       position: absolute;
       top: 1px;
       right: 10px;
-      color: rgb(75, 0, 130);
+      color: #FF3131;
       font-size: 1.5em;
       text-decoration: none;
   }
