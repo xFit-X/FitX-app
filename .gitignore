@@ -76,6 +76,7 @@ docs/_build/
 # PyBuilder
 .pybuilder/
 target/
+custom_config.py
 
 
 # Jupyter Notebook
