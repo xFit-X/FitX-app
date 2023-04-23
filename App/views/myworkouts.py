@@ -11,7 +11,7 @@ from App.controllers import (
     get_all_workouts
 )
 
-#returns multiple workouts in each attribute so use a for loop to list
+
 @myworkouts_views.route('/myworkouts', methods=['GET'])
 @user_required
 def myworkouts_page():
@@ -78,20 +78,17 @@ def editWorkout():
         
     new_workout = edit_workout(data["workoutId"],current_user.id,pname, sets, reps, weight, day,pub)
     if(new_workout):
-        flash("Successfully Edited!")
-        # workout = get_workout_by_id(new_workout.workoutId)
+        flash("Successfully Edited!")        
         return redirect(request.referrer)
     else:
         return redirect(request.referrer)
 
 
-#just does a flash and reloads the page to show the updated info
 @myworkouts_views.route('/myworkouts/<int:uwid>', methods=['GET'])
 @user_required
 def deleteWorkout(uwid):
     if delete_workout(uwid,current_user.id):
-        flash("Successfully Deleted!")
-        # workout = get_workout_by_id(new_workout.workoutId)
+        flash("Successfully Deleted!")        
         return redirect(request.referrer)
 
 

@@ -24,9 +24,9 @@
 <main class="container">
     
         <div class="container">
-            
+          {%if listing%}
             <ul class="scrollable" style="height: 500px;">
-            {%if listing%}
+            
             {% for list in listing %}
             {% for user in users %}
             {% if user.id == list.userId %}
@@ -73,10 +73,11 @@
             {% endif %}     
             {% endfor %}
             {% endfor %}
+            
+            </ul>
             {%else%}
             <h1 class="notfound">¯\_(ツ)_/¯</h1>
             {% endif %}
-            </ul>
         </div>
     
  </main>

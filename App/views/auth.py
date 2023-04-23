@@ -29,7 +29,7 @@ def login_action():
     login_user(user)  # login the user
     return redirect('/home')  # redirect to main page if login successful
   else:
-    flash('Invalid username or password')  # send message to next page
+    flash('Invalid username or password!')  # send message to next page
   return redirect(request.referrer)
 
 @auth_views.route('/signup', methods=['POST'])
@@ -43,7 +43,7 @@ def signup_action():
     return redirect(url_for('auth_views.login_page'))  # redirect to homepage
   except Exception as e:  # attempted to insert a duplicate user
     db.session.rollback()
-    flash("username or email already exists")  # error message
+    flash("Username already exists!")  # error message
   return redirect(url_for('auth_views.signup_page'))
 
 @auth_views.route('/logout', methods=['GET'])

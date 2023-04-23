@@ -108,7 +108,7 @@ app.cli.add_command(workout_cli)
 
 myworkout_cli = AppGroup('myworkout', help='User workouts commands') 
 
-@myworkout_cli.command("save", help="Save workout for user into into the database")
+@myworkout_cli.command("save", help="Save workout for user into the database")
 @click.argument("username", default="bob")
 @click.argument("name", default="MyWorkout")
 @click.argument("workoutid", default="53")

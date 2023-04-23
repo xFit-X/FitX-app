@@ -14,8 +14,7 @@ from App.controllers import (
 def saveWorkout():
   data = request.form 
   pub = request.form.get('public') == 'on' 
-  new_workout = save_workout(current_user.id, data["workoutId"],data["pname"],data["sets"], data["reps"], data["weight"], data["day"],pub)
-  # workout = get_workout_by_id(new_workout.workoutId)
+  new_workout = save_workout(current_user.id, data["workoutId"],data["pname"],data["sets"], data["reps"], data["weight"], data["day"],pub)  
   flash('Successfully Saved' + " " + data["pname"])
   return redirect(request.referrer)
 

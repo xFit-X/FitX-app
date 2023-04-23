@@ -40,11 +40,11 @@
                                       <img class="exercise-img" src="{{ img_link }}">
                                       <a id="actbtn" class="btn-floating halfway-fab waves-effect waves-light" href="{{ url_for('workout_views.workout_page', value=exercise) }}" ><i class="material-icons">arrow_forward</i></a>
                                     </div>
-                                    <div class="card-content">
+                                    <div class="card-footer" id ="all_workouts">
                                       {%if exercise == 'lower_back'%}
-                                      <span class="card-title " id ="all_workouts">Lower Back</span>
+                                      <span class="card-title white-text" >Lower Back</span>
                                       {%else%}
-                                      <span class="card-title " id ="all_workouts">{{ exercise|title }}</span>
+                                      <span class="card-title white-text " >{{ exercise|title }}</span>
                                       {%endif%}
                                   </div>
                                   

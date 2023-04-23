@@ -205,8 +205,9 @@ html{
     }
 
     #all_workouts {
-      padding:0% 90% 0% 5%;
+      /* padding:0% 90% 0% 5%; */
       text-align: center;
+      background-color: #000000;
     }
     #actbtn{
       background-color: #FF3131;

@@ -62,7 +62,6 @@ def listing_action(uwId):
         flash('Already Saved!')
     return redirect(request.referrer)
 
-#returns multiple workouts
 @allworkouts_views.route('/search', methods=['GET'])
 @user_required
 def searchWorkouts_page():
