@@ -58,7 +58,7 @@
                             {%if current_user.id == user.id%}
                             <p><b>Created By:</b> You</p>
                             {%else%}
-                            <p><b></b>Created By:</b> {{user.username}}</p>
+                            <p><b>Created By:</b> {{user.username}}</p>
                             {%endif%}
                             <a href="/savelisting/{{list.uwId}}" class="waves-effect waves-light btn " style="background-color: #FF3131;">Save</a>
                         </div>
