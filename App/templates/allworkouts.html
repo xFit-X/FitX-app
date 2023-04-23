@@ -4,9 +4,7 @@
 
 {% block content%}
 <div class="parallax-container" id="banner">
-    <div class="parallax responsive-img"><img src="https://i.imgur.com/Xxu1g1u.jpg"></div>
-    
-    
+    <div class="parallax responsive-img"><img src="https://i.imgur.com/Xxu1g1u.jpg"></div>    
     <div class="section" id="top-section">
       <div class="container">
         <div class="row">
@@ -40,9 +38,16 @@
                               <div class="card hoverable">
                                   <div class="card-image">
                                       <img class="exercise-img" src="{{ img_link }}">
-                                      <span class="card-title black bold" id ="all_workouts">{{ exercise|title }}</span>
-                                      <a class="btn-floating halfway-fab waves-effect waves-light red lighten-1" href="{{ url_for('workout_views.workout_page', value=exercise) }}" ><i class="material-icons">arrow_forward</i></a>
+                                      <a id="actbtn" class="btn-floating halfway-fab waves-effect waves-light" href="{{ url_for('workout_views.workout_page', value=exercise) }}" ><i class="material-icons">arrow_forward</i></a>
+                                    </div>
+                                    <div class="card-content">
+                                      {%if exercise == 'lower_back'%}
+                                      <span class="card-title " id ="all_workouts">Lower Back</span>
+                                      {%else%}
+                                      <span class="card-title " id ="all_workouts">{{ exercise|title }}</span>
+                                      {%endif%}
                                   </div>
+                                  
                               </div>
                           </div>
                       {% endfor %}
@@ -55,4 +60,7 @@
       </section>
 {% endfor %}
 </main>
+<div class="parallax-container" id="banner_b">
+  <div class="parallax responsive-img"><img src="https://i.imgur.com/Xxu1g1u.jpg"></div>      
+</div>
 {%endblock%}

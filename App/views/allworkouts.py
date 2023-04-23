@@ -7,7 +7,8 @@ from App.controllers import (
     user_required,
     get_listing,
     get_all_workouts,
-    save_listing_workout
+    save_listing_workout,
+    get_all_users
 )
 
 @allworkouts_views.route('/allworkouts', methods=['GET'])
@@ -48,7 +49,8 @@ def allworkouts_page():
 def listing_page():
     workouts = get_all_workouts()
     listing = get_listing()
-    return render_template('listing.html',listing=listing,workouts=workouts)
+    users = get_all_users()
+    return render_template('listing.html',listing=listing,workouts=workouts, users =users)
 
 @allworkouts_views.route('/savelisting/<int:uwId>', methods=['GET'])
 @user_required
@@ -66,4 +68,8 @@ def listing_action(uwId):
 def searchWorkouts_page():
     query = request.args.get('query')    
     workouts = get_workout(query)
-    return render_template('search.html', workouts=workouts, search=query) 
+    w_days = {"Monday": "Monday", "Tuesday": "Tuesday", 
+    "Wednesday": "Wednesday", "Thursday": 
+    "Thursday", "Friday": "Friday", 
+    "Saturday": "Saturday", "Sunday": "Sunday"}
+    return render_template('search.html', workouts=workouts, search=query,w_days=w_days) 
