@@ -38,8 +38,7 @@ def signup_action():
   newuser = User(username=data['username'],password=data['password'])  # create user object
   try:
     db.session.add(newuser)
-    db.session.commit()  # save user
-    login_user(newuser)
+    db.session.commit()  # save user    
     flash('Account Created!')  # send message
     return redirect(url_for('auth_views.login_page'))  # redirect to homepage
   except Exception as e:  # attempted to insert a duplicate user
