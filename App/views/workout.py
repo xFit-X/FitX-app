@@ -13,7 +13,8 @@ from App.controllers import (
 @user_required
 def saveWorkout():
   data = request.form 
-  pub = request.form.get('public') == 'on' 
+  pub = request.form.get('public') == 'on'
+  print(current_user.id) 
   new_workout = save_workout(current_user.id, data["workoutId"],data["pname"],data["sets"], data["reps"], data["weight"], data["day"],pub)  
   flash('Successfully Saved' + " " + data["pname"])
   return redirect(request.referrer)

@@ -109,7 +109,7 @@ app.cli.add_command(workout_cli)
 myworkout_cli = AppGroup('myworkout', help='User workouts commands') 
 
 @myworkout_cli.command("save", help="Save workout for user into the database")
-@click.argument("username", default="bob")
+@click.argument("username", default="rob")
 @click.argument("name", default="MyWorkout")
 @click.argument("workoutid", default="53")
 @click.argument("sets", default="3")
@@ -179,7 +179,7 @@ def list_all_user_workout_command():
         print(f'No workouts')
 
 @myworkout_cli.command("user_workouts", help="Lists user workouts in the database")
-@click.argument("username", default="bob")
+@click.argument("username", default="rob")
 def list_user_workout_command(username):
     user = User.query.filter_by(username=username).first()
     if user:
