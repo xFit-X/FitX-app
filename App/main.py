@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 from datetime import timedelta
 
-from App.database import init_db
+from App.database import init_db, db
 from App.views import views
 from App.config import config
 from App.models import User
@@ -33,6 +33,8 @@ def create_app(config_overrides={}):
     configure_uploads(app, photos)
     add_views(app)
     init_db(app)
+    with app.app_context():
+        db.create_all()
     app.app_context().push()
 
     @login_manager.user_loader
