@@ -1,17 +1,10 @@
-from flask_login import login_user, current_user, LoginManager
+from flask_login import login_user, current_user
 from flask import Blueprint, redirect, render_template, request, send_from_directory, jsonify, flash, url_for
 from App.models import db, User
 from .workout import cache_api_workouts
 from .user import create_user
 from functools import wraps
 
-login_manager = LoginManager()
-
-@login_manager.user_loader
-def load_user(user_id):
-    user =  User.query.get(user_id)
-    if user:
-        return user        
 
 
 def login(username, password):
