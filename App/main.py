@@ -27,19 +27,19 @@ def create_app(config_overrides={}):
     CORS(app)
     configure_app(app, config)
     configure_app(app, config_overrides)
-    login_manager = LoginManager()
-    login_manager.init_app(app)
+    # login_manager = LoginManager()
+    # login_manager.init_app(app)
     photos = UploadSet('photos', TEXT + DOCUMENTS + IMAGES)
     configure_uploads(app, photos)
     add_views(app)
     init_db(app)
     app.app_context().push()
 
-    @login_manager.user_loader
-    def load_user(user_id):
-        user =  User.query.get(user_id)
-        if user:
-            return user        
+    # @login_manager.user_loader
+    # def load_user(user_id):
+    #     user =  User.query.get(user_id)
+    #     if user:
+    #         return user        
 
     return app
 
