@@ -2,11 +2,11 @@ from App.database import db
 
 class Workout(db.Model):
     workoutId = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), nullable=False)
-    type = db.Column(db.String(20), nullable=False)
-    muscle = db.Column(db.String(20), nullable=False)
-    equipment = db.Column(db.String(20), nullable=False)
-    difficulty = db.Column(db.String(20), nullable=False)
+    name = db.Column(db.String(200), nullable=False)
+    type = db.Column(db.String(200), nullable=False)
+    muscle = db.Column(db.String(200), nullable=False)
+    equipment = db.Column(db.String(200), nullable=False)
+    difficulty = db.Column(db.String(200), nullable=False)
     instructions = db.Column(db.String(100000), nullable=False)
 
     def __init__(self, name, type, muscle, equipment, difficulty, instructions):
